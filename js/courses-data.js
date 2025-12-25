@@ -1,9 +1,8 @@
-// Данные курсов
 const coursesData = [
     {
         id: 1,
         title: "The Ultimate Google Ads Training Course",
-        category: "marketing",
+        category: "marketing", // должно быть 'marketing'
         price: "$100",
         author: "by Jerome Bell",
         image: "images/1.jpg"
@@ -11,15 +10,15 @@ const coursesData = [
     {
         id: 2,
         title: "Product Management Fundamentals",
-        category: "management",
+        category: "management", // должно быть 'management'
         price: "$480",
         author: "by Marvin McKinney",
         image: "images/2.jpg"
     },
     {
         id: 3,
-        title: "HR  Management and Analytics",
-        category: "HR & Recruiting",
+        title: "HR Management and Analytics",
+        category: "hr-recruiting", // должно быть 'hr-recruiting' (а не 'HR & Recruiting')
         price: "$200",
         author: "by Leslie Alexander Li",
         image: "images/3.jpg"
@@ -27,7 +26,7 @@ const coursesData = [
     {
         id: 4,
         title: "Brand Management & PR Communications",
-        category: "Marketing",
+        category: "marketing", // должно быть 'marketing' (а не 'Marketing')
         price: "$530",
         author: "by Kristin Watson",
         image: "images/4.jpg"
@@ -35,7 +34,7 @@ const coursesData = [
     {
         id: 5,
         title: "Graphic Design Basic",
-        category: "Design",
+        category: "design", // должно быть 'design'
         price: "$500",
         author: "by Guy Hawkins",
         image: "images/5.jpg"
@@ -43,7 +42,7 @@ const coursesData = [
     {
         id: 6,
         title: "Business Development Management",
-        category: "Management",
+        category: "management", // должно быть 'management' (а не 'Management')
         price: "$400",
         author: "by Dianne Russell",
         image: "images/6.jpg"
@@ -51,7 +50,7 @@ const coursesData = [
     {
         id: 7,
         title: "High load Software Architecture",
-        category: "Development",
+        category: "development", // должно быть 'development'
         price: "$600",
         author: "by Brooklyn Simmons",
         image: "images/7.jpg"
@@ -59,7 +58,7 @@ const coursesData = [
     {
         id: 8,
         title: "Human Resources – Selection and Recruitment",
-        category: "HR & Recruiting",
+        category: "hr-recruiting", // должно быть 'hr-recruiting' (а не 'HR & Recruiting')
         price: "$150",
         author: "by Kathryn Murphy",
         image: "images/8.jpg"
@@ -67,7 +66,7 @@ const coursesData = [
     {
         id: 9,
         title: "User Experience. Human-centered Design",
-        category: "Design",
+        category: "design", // должно быть 'design' (а не 'Design')
         price: "$240",
         author: "by Cody Fisher",
         image: "images/9.jpg"
@@ -75,7 +74,7 @@ const coursesData = [
     {
         id: 10,
         title: "Talent Acquisition Strategies",
-        category: "hr-recruiting",
+        category: "hr-recruiting", // ✓ правильно
         price: "$180",
         author: "by Cody Fisher",
         image: "images/10.jpg"
@@ -83,7 +82,7 @@ const coursesData = [
     {
         id: 11,
         title: "Content Marketing Workshop",
-        category: "marketing",
+        category: "marketing", // ✓ правильно
         price: "$150",
         author: "by Jane Cooper",
         image: "images/11.jpg"
@@ -91,7 +90,7 @@ const coursesData = [
     {
         id: 12,
         title: "Strategic Leadership Program",
-        category: "management",
+        category: "management", // ✓ правильно
         price: "$280",
         author: "by Albert Flores",
         image: "images/12.jpg"
@@ -99,7 +98,7 @@ const coursesData = [
     {
         id: 13,
         title: "Web Development Bootcamp",
-        category: "development",
+        category: "development", // ✓ правильно
         price: "$450",
         author: "by Annette Black",
         image: "images/13.jpg"
@@ -107,7 +106,7 @@ const coursesData = [
     {
         id: 14,
         title: "Employee Engagement Techniques",
-        category: "hr-recruiting",
+        category: "hr-recruiting", // ✓ правильно
         price: "$160",
         author: "by Ralph Edwards",
         image: "images/14.jpg"
@@ -115,7 +114,7 @@ const coursesData = [
     {
         id: 15,
         title: "SEO Optimization Course",
-        category: "marketing",
+        category: "marketing", // ✓ правильно
         price: "$190",
         author: "by Jenny Wilson",
         image: "images/15.jpg"
@@ -123,7 +122,7 @@ const coursesData = [
     {
         id: 16,
         title: "Digital Product Design",
-        category: "design",
+        category: "design", // ✓ правильно
         price: "$270",
         author: "by Courtney Henry",
         image: "images/16.jpg"
@@ -131,13 +130,9 @@ const coursesData = [
     {
         id: 17,
         title: "HR Analytics and Metrics",
-        category: "hr-recruiting",
+        category: "hr-recruiting", // ✓ правильно
         price: "$210",
         author: "by Leslie Alexander",
         image: "images/17.jpg"
     }
 ];
-
-// Экспортируем данные для использования в других файлах
-// В браузере используем window объект для глобального доступа
-window.coursesData = coursesData;

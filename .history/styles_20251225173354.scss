@@ -1,0 +1,386 @@
+$primary-color: #FF3F3A;
+$primary-color-dark: #E63934;
+$text-primary: #1E212C;
+$text-secondary: #787A80;
+$text-light: #FFFFFF;
+$border-color: rgba(215, 218, 221, 1);
+$bg-light: #F4F5F6;
+$load-more-bg: #424551;
+$border-radius: 4px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $text-primary;
+    background-color: #FFFFFF;
+    padding: 20px;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1230px;
+    min-height: 100vh;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 77px;
+
+    &__subtitle {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: $text-secondary;
+        margin-left: -50px;
+        margin-bottom: 8px;
+    }
+
+    &__title {
+        margin-left: -50px;
+        font-weight: 900;
+        font-size: 46px;
+        line-height: 130%;
+        color: $text-primary;
+    }
+}
+
+.block {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    gap: 30px;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.filter {
+    position: relative;
+    padding: 10px 34px 10px 20px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    color: $border-color;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.3s ease-in-out;
+
+    &:hover {
+        border-color: $primary-color;
+    }
+
+
+    &__title {
+        position: relative;
+
+        // Стили для надстрочной цифры
+        &::after {
+            content: attr(data-count);
+            position: absolute;
+            top: -7px;
+            right: -19px;
+            color: $border-color;
+            font-weight: 900;
+            font-size: 10px;
+            line-height: 150%;
+            min-width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-feature-settings: 'sups' on; // Включение надстрочных цифр
+        }
+    }
+
+    &--active {
+        color: $primary-color;
+        border-color: $primary-color;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $primary-color-dark;
+            color: $text-light;
+
+            .filter__title::after {
+                color: $text-light;
+            }
+        }
+
+        .filter__title::after {
+            color: $primary-color;
+        }
+    }
+}
+
+.search {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 315px;
+
+    &__input {
+        width: 100%;
+        max-width: 600px;
+        padding: 12px 20px;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        font-family: 'Lato', sans-serif;
+        font-size: 16px;
+        line-height: 160%;
+        color: $text-primary;
+        outline: none;
+        transition: border-color 0.3s ease-in-out;
+
+        &:focus {
+            border-color: $primary-color;
+            box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+        }
+
+        &:not(:focus):hover {
+            border-color: $text-primary;
+        }
+
+        &::placeholder {
+            color: $text-secondary;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        right: 14px !important;
+        transform: translateY(-50%);
+    }
+}
+
+.courses {
+    flex: 1;
+
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 86px;
+    }
+}
+
+.course-card {
+    width: calc((100% - 60px) / 3);
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    &__image {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+    }
+
+    &__content {
+        padding: 24px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__category {
+        display: inline-block;
+        padding: 1px 8px;
+        border-radius: $border-radius;
+        background-color: $bg-light;
+        color: $text-light;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 150%;
+        margin-bottom: 20px;
+        align-self: flex-start;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 150%;
+        color: $text-primary;
+        flex: 1;
+    }
+
+    &__info {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    &__price {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 150%;
+        color: $primary-color-dark;
+    }
+
+    &__author {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 150%;
+        color: $text-secondary;
+    }
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 20px;
+    color: $text-secondary;
+    display: none;
+
+    &--visible {
+        display: block;
+    }
+}
+
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 86px;
+    gap: 16px;
+    width: fit-content;
+    transition: color 0.3s ease-in-out, fill 0.3s ease-in-out;
+
+    &:hover .load-more-btn,
+    &:hover svg path {
+        color: $text-secondary;
+        fill: $text-secondary;
+    }
+
+    &--all-shown {
+        .load-more-svg {
+            cursor: pointer;
+
+            &:hover path {
+                fill: $primary-color;
+            }
+        }
+    }
+}
+
+.load-more-svg {
+    transition: transform 0.3s ease;
+
+    &::after {
+        content: 'Show less';
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: $text-secondary;
+        transition: transform 0.3s ease;
+        white-space: nowrap;
+    }
+
+    &:hover::after {
+        transform: rotate(180deg);
+    }
+
+    &--rotate {
+        transform: rotate(180deg);
+    }
+}
+
+.load-more-btn {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    letter-spacing: 0%;
+    color: $text-primary;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+
+    &:active {
+        color: $text-secondary;
+    }
+
+    &--hidden {
+        display: none;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .header {
+        .header__subtitle {
+            margin-left: 0;
+        }
+
+        .header__title {
+            margin-left: 0;
+        }
+    }
+
+    .block {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 950px) {
+    .course-card {
+        width: calc((100% - 30px) / 2);
+
+        .course-card__image {
+            aspect-ratio: 387 / 240;
+            height: auto;
+        }
+    }
+}
+
+@media (max-width: 625px) {
+    .header {
+        .header__title {
+            font-size: 32px;
+        }
+    }
+
+    .course-card {
+        width: 100%;
+        height: auto;
+    }
+}
